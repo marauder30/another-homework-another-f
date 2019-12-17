@@ -27,4 +27,5 @@
 // when timer reaches zero, clear interval? to end game
 // modal box to collect name and score in local storage
 // store high scores in existing or new variable 
+// use the sort function to list in order of highest score to lowest
 // href to  high scores page
