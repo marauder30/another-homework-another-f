@@ -1,3 +1,10 @@
+var timeLeft = document.querySelector(".timer");
+var startGame = document.getElementById("startbutton");
+var answer1 = document.getElementById("button1");
+var answer2 = document.getElementById("button2");
+var answer3 = document.getElementById("button3");
+var answer4 = document.getElementById("button4");
+
 
 
 
