@@ -17,6 +17,7 @@ var answer4 = document.getElementById("button4");
 //link to high scores
 
 
+//gonna need a variable to point to the question object/arrays
 //click listener on start button begins question array
 //set timer to 75
 //begin counting down from 75 in increments of one second
