@@ -9,6 +9,34 @@ var score = 0;
 var timer = 0;
 var highScore = document.querySelector(".highscores");
 var questionArray = questions;
+var questions = [
+    {
+      title: "Commonly used data types DO NOT include:",
+      choices: ["strings", "booleans", "alerts", "numbers"],
+      answer: "alerts"
+    },
+    {
+        title: "How many ampersands are used to denote an 'and' statement?",
+        choices: ["0", "1", "2", "3"],
+        answer: "2"
+      },
+      {
+        title: "Commonly used data types DO NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "alerts"
+      },
+      {
+        title: "Commonly used data types DO NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "alerts"
+      },
+      {
+        title: "Commonly used data types DO NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "alerts"
+      },
+      ];
+
 
 var gameTimer = setInterval(function() {
     timer--;
@@ -18,9 +46,9 @@ var gameTimer = setInterval(function() {
 },1000);
 
 
-startGame.addEventListener("click", function (event) {
     event.preventDefault;
     timer = secondsLeft;
+    console.log("anything")
     document.appendChild(questions[i]);
     
     
