@@ -1,7 +1,8 @@
+var container = document.querySelector(".questionForm");
 var timeLeft = document.querySelector(".timer");
 var startGame = document.getElementById("startbutton");
 var answer1 = document.getElementById("button1");
-var answer2 = document.getElementById("button2");f
+var answer2 = document.getElementById("button2");
 var answer3 = document.getElementById("button3");
 var answer4 = document.getElementById("button4");
 var answerButton = document.querySelectorAll(".btn-outline-dark");
@@ -9,6 +10,45 @@ var score = 0;
 var timer = 0;
 var highScore = document.querySelector(".highscores");
 var questionArray = questions;
+
+
+var questions = [
+    {
+      title: "Commonly used data types DO NOT include:",
+      choices: ["strings", "booleans", "alerts", "numbers"],
+      answer: "alerts"
+    },
+    {
+        title: "How many ampersands are used to denote an 'and' statement?",
+        choices: ["0", "1", "2", "3"],
+        answer: "2"
+      },
+      {
+        title: "Commonly used data types DO NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "alerts"
+      },
+      {
+        title: "Commonly used data types DO NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "alerts"
+      },
+      {
+        title: "Commonly used data types DO NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "alerts"
+      },
+      ];
+
+
+beginGame();
+
+function beginGame() {
+    timer = 75;
+    timeLeft = 75;
+    console.log(timeLeft);
+}
+
 
 //addeventlistener to container, delegate events to buttons
 // container.addeventlistener("click", function(event) {
@@ -22,31 +62,31 @@ var questionArray = questions;
 //
 //
 
-var gameTimer = setInterval(function() {
-    timer--;
-    lifeLeft.textContent = timer;
-    if (timer <= 0)
-    clearInterval(gameTimer);
-},1000);
+// var gameTimer = setInterval(function() {
+//     timer--;
+//     lifeLeft.textContent = timer;
+//     if (timer <= 0)
+//     clearInterval(gameTimer);
+// },1000);
 
 
-    event.preventDefault;
-    timer = secondsLeft;
-    console.log("anything")
-    document.appendChild(questions[i]);
+//     event.preventDefault;
+//     timer = secondsLeft;
+//     console.log("anything")
+//     document.appendChild(questions[i]);
     
     
-    console.log(questions[i]);
+//     console.log(questions[i]);
     
-        timer = 75;
+//         timer = 75;
         
 
-        document.querySelector(".timer").innerHTML = seconds;
+//         document.querySelector(".timer").innerHTML = seconds;
 
     
 
 
-    for (var i =0; i < questions.length; i++) {
+//     for (var i =0; i < questions.length; i++) {
 
     
 
@@ -54,17 +94,17 @@ var gameTimer = setInterval(function() {
 
 
 
-    if (secondsLeft === 0) {
-        clearInterval(timerInterval);           
-        //modal to collect name and score to new variable in localStorage
-        location  = "highscores.html";
-  };
+//     if (secondsLeft === 0) {
+//         clearInterval(timerInterval);           
+//         //modal to collect name and score to new variable in localStorage
+//         location  = "highscores.html";
+//   };
 
-}
-
-
+// }
 
 
+// 
+// 
 
 
 //variable for start button 
