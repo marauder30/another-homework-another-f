@@ -174,14 +174,12 @@ startButton.addEventListener("click", function() {
 
 function renderQuestion1() {
 
-
     modalHeader.innerHTML = questions[0].title;
 
     var answer1 = document.createElement("button");
     var answer2 = document.createElement("button");
     var answer3 = document.createElement("button");
     var answer4 = document.createElement("button");
-
 
     modalBody.appendChild(answer1);
     answer1.setAttribute("class", "btn btn-secondary btn-lg btn-block");
@@ -196,9 +194,26 @@ function renderQuestion1() {
     answer2.textContent = questions[0].choices[1];
     answer3.textContent = questions[0].choices[2];
     answer4.textContent = questions[0].choices[3];
-    
 
+    modalBody.addEventListener("click", function(event) {
+        var element = event.target;
 
+        if (element.matches("button") === true) {
+
+            console.log(element);
+            console.log(element.textContent);
+
+            if (element.textContent === "alerts") {
+
+                console.log("success!");
+            } else {
+                console.log("wrong!!");
+            }
+
+            renderQuestion2();
+
+        }
+    })
 
 }
 
