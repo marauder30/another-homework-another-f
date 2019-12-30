@@ -114,6 +114,7 @@
 // use the sort function to list in order of highest score to lowest
 
 
+
 var startButton = document.getElementById("startbutton");
 var timeRemaining = document.querySelector(".timer");
 var highScores = document.querySelector(".highscores");
@@ -121,22 +122,43 @@ var modal = document.querySelector("staticBackdrop");
 
 init();
 
+countdown();
 
 // init function to set timer to 0
 
 function init() {
-    timeRemaining.textContent = "Time Remaining: " + 0;
+    timeRemaining.innerHTML = "Time Remaining: " + 0;
 }
 
 
 // function for timeRemaining/increments
 
+function Decrement() {
+    if (document.getElementById) {
+        seconds = document.getElementById("timer");
+
+        console.log(seconds);
+
+        if (seconds === 0) {
+            alert("Time's up!")
+        } else {
+            seconds--;
+            setTimeout('Decrement()', 1000);
+        }
+    }
+}
 
 
 // event listener for startButton pops modal and begins quiz, sets timer to 75 and counts down
 
 
+function countdown() { 
+    timeRemaining.textContent = "Time remaining: " + 75;
+    console.log(timeRemaining);
+    setTimeout('Decrement()', 75); 
+} 
 
+console.log(questions[1].title);
 
 // function to cycle through questions and publish the question and answer buttons to the modal
 // innerHTML and empty() to clear fields 
@@ -155,16 +177,11 @@ function init() {
 
 
 
-// when time runs out or no questions remain, hide the answer boxes and publish the user score
+// when time runs out or no questions remain, clear interval, hide the answer boxes 
 
-// add a text field to the modal for the user to enter their initials
+// publish the user score and add a text field to the modal for the user to enter their initials
 
 // store initials and score in localStorage
-
-
-
-
-
 
 
 
