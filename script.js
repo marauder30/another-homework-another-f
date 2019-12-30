@@ -82,6 +82,9 @@
 //variable for start button 
 //variable for high score / page
 
+
+
+
 //load opening page (index.html) 
 //set/reset timer to 0
 //display start button
