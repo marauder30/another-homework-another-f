@@ -1,53 +1,25 @@
-var container = document.querySelector(".questionForm");
-var timeLeft = document.querySelector(".timer");
-var startGame = document.getElementById("startbutton");
-var answer1 = document.getElementById("button1");
-var answer2 = document.getElementById("button2");
-var answer3 = document.getElementById("button3");
-var answer4 = document.getElementById("button4");
-var answerButton = document.querySelectorAll(".btn-outline-dark");
-var score = 0;
-var timer = 0;
-var highScore = document.querySelector(".highscores");
-var questionArray = questions;
+// var container = document.querySelector(".questionForm");
+// var timeLeft = document.querySelector(".timer");
+// var startGame = document.getElementById("startbutton");
+// var answer1 = document.getElementById("button1");
+// var answer2 = document.getElementById("button2");
+// var answer3 = document.getElementById("button3");
+// var answer4 = document.getElementById("button4");
+// var answerButton = document.querySelectorAll(".btn-outline-dark");
+// var score = 0;
+// var timer = 0;
+// var highScore = document.querySelector(".highscores");
+// var questionArray = questions;
 
 
-var questions = [
-    {
-      title: "Commonly used data types DO NOT include:",
-      choices: ["strings", "booleans", "alerts", "numbers"],
-      answer: "alerts"
-    },
-    {
-        title: "How many ampersands are used to denote an 'and' statement?",
-        choices: ["0", "1", "2", "3"],
-        answer: "2"
-      },
-      {
-        title: "Commonly used data types DO NOT include:",
-        choices: ["strings", "booleans", "alerts", "numbers"],
-        answer: "alerts"
-      },
-      {
-        title: "Commonly used data types DO NOT include:",
-        choices: ["strings", "booleans", "alerts", "numbers"],
-        answer: "alerts"
-      },
-      {
-        title: "Commonly used data types DO NOT include:",
-        choices: ["strings", "booleans", "alerts", "numbers"],
-        answer: "alerts"
-      },
-      ];
 
+// beginGame();
 
-beginGame();
-
-function beginGame() {
-    timer = 75;
-    timeLeft = 75;
-    console.log(timeLeft);
-}
+// function beginGame() {
+//     timer = 75;
+//     timeLeft = 75;
+//     console.log(timeLeft);
+// }
 
 
 //addeventlistener to container, delegate events to buttons
