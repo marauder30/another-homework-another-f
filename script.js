@@ -67,9 +67,11 @@
 
 
 //     if (secondsLeft === 0) {
-//         clearInterval(timerInterval);           
-//         //modal to collect name and score to new variable in localStorage
-//         location  = "highscores.html";
+//         clearInterval(timerInterval);    
+
+
+//         modal to collect name and score to new variable in localStorage
+
 //   };
 
 // }
@@ -110,3 +112,65 @@
 // modal box to collect name and score in local storage
 // store high scores in existing or new variable 
 // use the sort function to list in order of highest score to lowest
+
+
+var startButton = document.getElementById("startbutton");
+var timeRemaining = document.querySelector(".timer");
+var highScores = document.querySelector(".highscores");
+var modal = document.querySelector("staticBackdrop");
+
+init();
+
+
+// init function to set timer to 0
+
+function init() {
+    timeRemaining.textContent = "Time Remaining: " + 0;
+}
+
+
+// function for timeRemaining/increments
+
+
+
+// event listener for startButton pops modal and begins quiz, sets timer to 75 and counts down
+
+
+
+
+// function to cycle through questions and publish the question and answer buttons to the modal
+// innerHTML and empty() to clear fields 
+
+
+
+
+
+// event listener for modal/ check if buttons
+
+
+
+// calculate score based on time remaining if answered correctly 
+// else remove time from the clock if answered incorrectly
+
+
+
+
+// when time runs out or no questions remain, hide the answer boxes and publish the user score
+
+// add a text field to the modal for the user to enter their initials
+
+// store initials and score in localStorage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
