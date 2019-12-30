@@ -119,15 +119,17 @@ var startButton = document.getElementById("startbutton");
 var timeRemaining = document.querySelector(".timer");
 var highScores = document.querySelector(".highscores");
 var modal = document.querySelector("staticBackdrop");
+var modalHeader = document.getElementById("staticBackdropLabel");
+var modalBody = document.getElementById("staticBackdropBody");
 
 init();
 
-countdown();
+
 
 // init function to set timer to 0
 
 function init() {
-    timeRemaining.innerHTML = "Time Remaining: " + 0;
+    timeRemaining.textContent = 0;
 }
 
 
@@ -137,7 +139,7 @@ function Decrement() {
     if (document.getElementById) {
         seconds = document.getElementById("timer");
 
-        console.log(seconds);
+
 
         if (seconds === 0) {
             alert("Time's up!")
@@ -148,20 +150,57 @@ function Decrement() {
     }
 }
 
-
-// event listener for startButton pops modal and begins quiz, sets timer to 75 and counts down
-
-
 function countdown() { 
-    timeRemaining.textContent = "Time remaining: " + 75;
+    timeRemaining = 75;
+    timeRemaining.val = 75;
     console.log(timeRemaining);
     setTimeout('Decrement()', 75); 
 } 
+    
 
-console.log(questions[1].title);
+// event listener for startButton pops modal and begins quiz, sets timer to 75 and counts down
+
+startButton.addEventListener("click", function() {
+
+    renderQuestion1();
+    Decrement();
+    countdown();
+    
+    
+}); 
 
 // function to cycle through questions and publish the question and answer buttons to the modal
 // innerHTML and empty() to clear fields 
+
+function renderQuestion1() {
+
+
+    modalHeader.innerHTML = questions[0].title;
+
+    var answer1 = document.createElement("button");
+    var answer2 = document.createElement("button");
+    var answer3 = document.createElement("button");
+    var answer4 = document.createElement("button");
+
+
+    modalBody.appendChild(answer1);
+    answer1.setAttribute("class", "btn btn-secondary btn-lg btn-block");
+    modalBody.appendChild(answer2);
+    answer2.setAttribute("class", "btn btn-secondary btn-lg btn-block");
+    modalBody.appendChild(answer3);
+    answer3.setAttribute("class", "btn btn-secondary btn-lg btn-block");
+    modalBody.appendChild(answer4);
+    answer4.setAttribute("class", "btn btn-secondary btn-lg btn-block");
+
+    answer1.textContent = questions[0].choices[0];
+    answer2.textContent = questions[0].choices[1];
+    answer3.textContent = questions[0].choices[2];
+    answer4.textContent = questions[0].choices[3];
+    
+
+
+
+}
 
 
 
