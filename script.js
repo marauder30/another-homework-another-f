@@ -1,118 +1,3 @@
-// var container = document.querySelector(".questionForm");
-// var timeLeft = document.querySelector(".timer");
-// var startGame = document.getElementById("startbutton");
-// var answer1 = document.getElementById("button1");
-// var answer2 = document.getElementById("button2");
-// var answer3 = document.getElementById("button3");
-// var answer4 = document.getElementById("button4");
-// var answerButton = document.querySelectorAll(".btn-outline-dark");
-// var score = 0;
-// var timer = 0;
-// var highScore = document.querySelector(".highscores");
-// var questionArray = questions;
-
-
-
-// beginGame();
-
-// function beginGame() {
-//     timer = 75;
-//     timeLeft = 75;
-//     console.log(timeLeft);
-// }
-
-
-//addeventlistener to container, delegate events to buttons
-// container.addeventlistener("click", function(event) {
-//    
-// if (event.target.matches("button")) {
-//    var index = event.target.parentElement.getAttribute("data-index");
-// }
-//})
-//
-//
-//
-//
-
-// var gameTimer = setInterval(function() {
-//     timer--;
-//     lifeLeft.textContent = timer;
-//     if (timer <= 0)
-//     clearInterval(gameTimer);
-// },1000);
-
-
-//     event.preventDefault;
-//     timer = secondsLeft;
-//     console.log("anything")
-//     document.appendChild(questions[i]);
-    
-    
-//     console.log(questions[i]);
-    
-//         timer = 75;
-        
-
-//         document.querySelector(".timer").innerHTML = seconds;
-
-    
-
-
-//     for (var i =0; i < questions.length; i++) {
-
-    
-
-
-
-
-
-//     if (secondsLeft === 0) {
-//         clearInterval(timerInterval);    
-
-
-//         modal to collect name and score to new variable in localStorage
-
-//   };
-
-// }
-
-
-// 
-// 
-
-
-//variable for start button 
-//variable for high score / page
-
-
-
-
-//load opening page (index.html) 
-//set/reset timer to 0
-//display start button
-//link to high scores
-
-
-//gonna need a variable to point to the question object/arrays
-//click listener on start button begins question array
-//set timer to 75
-//begin counting down from 75 in increments of one second
-//display random question from array? or in a series, whichever is easier tbh
-//question should also randomly display possible answers from array, 1 of which is correct
-
-//click event on each of 4 answer buttons
-// IF a question is answered correctly, add to the players score
-//    refresh page? 
-//    move on to the next question 
-// ELSE IF
-//    a question is answered incorrectly, remove 10 seconds
-//    next question
-
-// when timer reaches zero, clear interval? to end game
-// modal box to collect name and score in local storage
-// store high scores in existing or new variable 
-// use the sort function to list in order of highest score to lowest
-
 
 
 var startButton = document.getElementById("startbutton");
@@ -124,38 +9,6 @@ var modalBody = document.getElementById("staticBackdropBody");
 var score;
 var time;
 
-init();
-
-
-
-// init function to set timer to 0
-
-function init() {
-    timeRemaining.textContent = 0;
-}
-
-
-// function for timeRemaining/increments
-
-// function setTimer () {
-// setInterval(function() {
-//     var sec = 75;
-//     sec--;
-//     document.getElementById("timer").innerHTML = sec;
-//     if (sec === 0) {
-//       alert("Time's up!");
-//       document.getElementById("timer").innerHTML = 0;
-//       stopTimer();
-//     }      
-      
-// }, 1000);
-
-// }
-
-
-// function stopTimer() {
-//    clearInterval();
-// }
 
 
 function setTimer() {
@@ -164,9 +17,22 @@ function setTimer() {
       document.getElementById("timer").innerHTML = sec;
       sec--;
       if (sec == 00) {
-        alert("Time's up!");
+        var userID = prompt("Time's up! Your score: " + score + "   Please enter your initials!");
+
+        var player = {
+            name: userID,
+            score: score
+        }
+
+        window.localStorage.setItem('user', JSON.stringify(player));
+
+        console.log(player);
+
         document.getElementById("timer").innerHTML = 0;
+
         location.href = "highscores.html";
+
+
       }
     }, 1000);
 }
@@ -175,8 +41,9 @@ function setTimer() {
 
 // event listener for startButton pops modal and begins quiz, sets timer to 75 and counts down
 
-startButton.addEventListener("click", function() {
+startButton.addEventListener("click", function(event) {
 
+    event.preventDefault();
     renderQuestion1();
     setTimer();
 
@@ -377,10 +244,6 @@ function renderQuestion1() {
                                                             } else {
                                                                 console.log("wrong!!");
                                                             }
-
-                                                            return;
-                                                
-                                                            // renderHighScores 
                                                 
                                                         }
                                                     })
