@@ -137,26 +137,40 @@ function init() {
 
 // function for timeRemaining/increments
 
-function Decrement() {
-    if (document.getElementById) {
-        seconds = document.getElementById("timer");
+// function setTimer () {
+// setInterval(function() {
+//     var sec = 75;
+//     sec--;
+//     document.getElementById("timer").innerHTML = sec;
+//     if (sec === 0) {
+//       alert("Time's up!");
+//       document.getElementById("timer").innerHTML = 0;
+//       stopTimer();
+//     }      
+      
+// }, 1000);
+
+// }
 
 
+// function stopTimer() {
+//    clearInterval();
+// }
 
-        if (seconds === 0) {
-            alert("Time's up!")
-        } else {
-            seconds--;
-            setTimeout('Decrement()', 1000);
-        }
-    }
+
+function setTimer() {
+    var sec = 75;
+    setInterval(function() {
+      document.getElementById("timer").innerHTML = sec;
+      sec--;
+      if (sec == 00) {
+        alert("Time's up!");
+        document.getElementById("timer").innerHTML = 0;
+        location.href = "highscores.html";
+      }
+    }, 1000);
 }
 
-function countdown() { 
-    timeRemaining = 75;
-    timeRemaining.val = 75;
-    setTimeout('Decrement()', 75); 
-} 
     
 
 // event listener for startButton pops modal and begins quiz, sets timer to 75 and counts down
@@ -164,8 +178,8 @@ function countdown() {
 startButton.addEventListener("click", function() {
 
     renderQuestion1();
-    Decrement();
-    countdown();
+    setTimer();
+
     
     
 }); 
@@ -204,10 +218,8 @@ function renderQuestion1() {
             if (element.textContent === "alerts") {
 
                 console.log("success!");
-                score += 15;
             } else {
                 console.log("wrong!!");
-                time -= 15;
             }
 
             renderQuestion2();
@@ -245,10 +257,8 @@ function renderQuestion1() {
                         if (element1.textContent === "2") {
             
                             console.log("success!");
-                            score += 15;
                         } else {
                             console.log("wrong!!");
-                            time -= 15;
                         }
 
                         renderQuestion3();
@@ -286,10 +296,8 @@ function renderQuestion1() {
                                     if (element2.textContent === "alerts") {
                         
                                         console.log("success!");
-                                        score += 15;
                                     } else {
                                         console.log("wrong!!");
-                                        time -= 15;
                                     }
 
                                     renderQuestion4();
@@ -327,10 +335,8 @@ function renderQuestion1() {
                                                 if (element3.textContent === "alerts") {
                                     
                                                     console.log("success!");
-                                                    score += 15;
                                                 } else {
                                                     console.log("wrong!!");
-                                                    time -= 15;
                                                 }
 
                                                 renderQuestion5();
@@ -368,11 +374,8 @@ function renderQuestion1() {
                                                             if (element4.textContent === "alerts") {
                                                 
                                                                 console.log("success!");
-                                                                score += 15;
                                                             } else {
                                                                 console.log("wrong!!");
-                                                                time -= 15;
-
                                                             }
 
                                                             return;
