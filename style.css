@@ -4,4 +4,10 @@
 
 .bg-dark {
     color: white;
+    text-decoration: none;
 }
+
+.highscores {
+    color: white;
+}
+

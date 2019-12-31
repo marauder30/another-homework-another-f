@@ -170,8 +170,8 @@ startButton.addEventListener("click", function() {
     
 }); 
 
-// function to cycle through questions and publish the question and answer buttons to the modal
-// innerHTML and empty() to clear fields 
+//function to cycle through questions and publish the question and answer buttons to the modal
+//innerHTML and empty() to clear fields 
 
 function renderQuestion1() {
 
@@ -209,6 +209,8 @@ function renderQuestion1() {
                 console.log("wrong!!");
                 time -= 15;
             }
+
+            renderQuestion2();
 
             function renderQuestion2() {
             
@@ -248,6 +250,8 @@ function renderQuestion1() {
                             console.log("wrong!!");
                             time -= 15;
                         }
+
+                        renderQuestion3();
                         
                         function renderQuestion3() {
                         
@@ -287,6 +291,8 @@ function renderQuestion1() {
                                         console.log("wrong!!");
                                         time -= 15;
                                     }
+
+                                    renderQuestion4();
                         
                                     function renderQuestion4() {
                                     
@@ -326,6 +332,8 @@ function renderQuestion1() {
                                                     console.log("wrong!!");
                                                     time -= 15;
                                                 }
+
+                                                renderQuestion5();
                                     
                                                 function renderQuestion5() {
                                                 
@@ -364,66 +372,32 @@ function renderQuestion1() {
                                                             } else {
                                                                 console.log("wrong!!");
                                                                 time -= 15;
+
                                                             }
+
+                                                            return;
                                                 
                                                             // renderHighScores 
                                                 
                                                         }
                                                     })
                                                 }
-
-                                                renderQuestion5();
                                     
                                             }
                                         })
                                     }
-
-                                    renderQuestion4();
                         
                                 }
                             })
                         }
-
-                        renderQuestion3();
             
                     }
                 })
             }
 
-            renderQuestion2();
-
         }
     })
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// calculate score based on time remaining if answered correctly 
-// else remove time from the clock if answered incorrectly
-
-
-
-
-// when time runs out or no questions remain, clear interval, hide the answer boxes 
-
-// publish the user score and add a text field to the modal for the user to enter their initials
-
-// store initials and score in localStorage
 
 
 
