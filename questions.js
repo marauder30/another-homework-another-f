@@ -1,7 +1,7 @@
 var questions = [
       {
-        title: "Commonly used data types DO NOT include:",
-        choices: ["strings", "booleans", "alerts", "numbers"],
+        title: "Which operator is used to assign a value to a variable?",
+        choices: ["=", "-", "x", "*"],
         answer: "alerts"
       },
       {
