@@ -2,7 +2,7 @@ var questions = [
       {
         title: "Which operator is used to assign a value to a variable?",
         choices: ["=", "-", "x", "*"],
-        answer: "alerts"
+        answer: "="
       },
       {
           title: "Which event occurs when the user clicks on an HTML element?",
