@@ -16,6 +16,9 @@ var response4 = document.getElementById("button4");
 var answer;
 var answer1;
 
+var playerArray;
+var scoreArray;
+var usersArray;
 
 
 function setTimer() {
@@ -23,27 +26,72 @@ function setTimer() {
   setInterval(function() {
     document.getElementById("timer").innerHTML = `Time: ` + sec;
     sec--;
-    if (sec == 00) {
-      var userID = prompt(`Time's up! Your score: ` + score + `   Please enter your initials!`);
+    if (sec <= 0) {
+
+
+      setStorage();
+      // var userID = prompt(`Time's up! Your score: ` + score + `   Please enter your initials!`);
+
+      // playerArray = JSON.parse(window.localStorage.getItem('names')) || [];
+      // scoreArray = JSON.parse(window.localStorage.getItem('scores')) || [];
+
       
-      var player = {
-        name: userID,
-        score: playerScore
-      }
+      // var player = {
+      //   name: userID,
+      //   score: playerScore
+      // }
+
       
-      window.localStorage.setItem('user', JSON.stringify(player));
+
+      // // usersArray.push(player);
+
+
+      // var playerString = JSON.stringify(playerArray);
+      // var scoreString = JSON.stringify(scoreArray);
+
+
+      // localStorage.setItem('names', playerString);
+      // localStorage.setItem('scores', scoreString);
       
-      console.log(player);
+
+      // window.localStorage.setItem('user', JSON.stringify(player));
       
-      document.getElementById("timer").innerHTML = 0;
       
-        location.href = "highscores.html";
+      // document.getElementById("timer").innerHTML = 0;
+      
+      //   location.href = "highscores.html";
         
 
       }
     }, 1000);
   }
   
+
+function setStorage() {
+
+  var userID = prompt(`Time's up! Your score: ` + playerScore + `   Please enter your initials!`);
+  // var player = {
+  //   name: userID,
+  //   score: playerScore
+  // }
+
+  playerArray = JSON.parse(localStorage.getItem('players')) || [];
+  scoreArray = JSON.parse(localStorage.getItem('scores')) || [];
+
+  playerArray.push(userID);
+  scoreArray.push(playerScore);
+
+  var usersString = JSON.stringify(playerArray);
+  var scoresString = JSON.stringify(scoreArray);
+
+  console.log(usersString);
+  console.log(scoresString);
+
+  localStorage.setItem('players', usersString);
+  localStorage.setItem('scores', scoresString);
+
+
+}
   
   function setScore() {
     playerScore = 0;
@@ -58,7 +106,7 @@ function setTimer() {
   function scoreMath() {
     
   playerScore = playerScore + sec
-  console.log(playerScore);
+  score.textContent = `Score: ` + playerScore;
   return;
   
 }
@@ -178,8 +226,7 @@ function renderQuestions5() {
 
     if (element.matches("button") === true) {
           if (element.textContent === answer) {
- 
-          console.log(playerScore);
+
         } else {
 
         }
@@ -215,237 +262,3 @@ startButton.addEventListener("click", function(event) {
 
 }); 
   
-
-
-// cmon billy
-
-
-
-// function renderQuestions() {
-
-//   for (var i = 0; i < questions.length; i++) {
-
-//     modalHeader.innerHTML = questions[i].title;
-//     response1.textContent = questions[i].choices[0];
-//     response2.textContent = questions[i].choices[1];
-//     response3.textContent = questions[i].choices[2];
-//     response4.textContent = questions[i].choices[3];
-//     answer = questions[i].answer;
-
-//     modalBody.addEventListener("click", function(event) {
-//       var element = event.target;
-
-//       if (element.matches("button") === true) {
-
-//         if (element.textContent === answer) {
- 
-//           scoreMath();
-//           console.log(playerScore);
-//         } else {
-
-//           sec -= 15;
-//         }
-
-//       } 
-//     })
-//   }
-// }
-
-
-
-
-// function renderQuestions2() {
-
-//     modalHeader.innerHTML = questions[i].title;
-
-  
-// } 
-
-
-
-
-// function question1() {
-
-//   modalHeader.innerHTML = questions[0].title;
-//   response1.textContent = questions[0].choices[0];
-//   response2.textContent = questions[0].choices[1];
-//   response3.textContent = questions[0].choices[2];
-//   response4.textContent = questions[0].choices[3];
-//   answer = questions[0].answer;
-
-//   console.log(answer);
-
-//   modalBody.addEventListener("click", function(event) {
-//     var element = event.target;
-
-//     console.log(element.textContent);
-
-//     if (element.matches("button") === true) {
-
-//       if (element.textContent === answer) {
-
-//         scoreMath();
-//         score.textContent = `Score: ` + playerScore;
-
-//       } else {
-//         sec -= 15;
-//       }
-
-//       question2();
-//     }
-//   })
-//   function question2() {
-  
-//     modalHeader.innerHTML = "";
-//     response1.textContent = "";
-//     response2.textContent = "";
-//     response3.textContent = "";
-//     response4.textContent = "";
-  
-//     modalHeader.innerHTML = questions[1].title;
-//     response1.textContent = questions[1].choices[0];
-//     response2.textContent = questions[1].choices[1];
-//     response3.textContent = questions[1].choices[2];
-//     response4.textContent = questions[1].choices[3];
-//     answer = questions[1].answer;
-  
-//     console.log(answer);
-  
-//     modalBody.addEventListener("click", function(event) {
-//       var element = event.target;
-  
-//       console.log(element.textContent);
-  
-//       if (element.matches("button") === true) {
-  
-//         if (element.textContent === answer) {
-//           scoreMath();
-//           score.textContent = `Score: ` + playerScore;
-  
-//         } else {
-//           sec -= 15;
-//         }
-  
-//       }
-//       question3();
-//     })
-  
-//   }
-
-// }
-// function question3() {
-
-//   modalHeader.innerHTML = "";
-//   response1.textContent = "";
-//   response2.textContent = "";
-//   response3.textContent = "";
-//   response4.textContent = "";
-
-//   modalHeader.innerHTML = questions[2].title;
-//   response1.textContent = questions[2].choices[0];
-//   response2.textContent = questions[2].choices[1];
-//   response3.textContent = questions[2].choices[2];
-//   response4.textContent = questions[2].choices[3];
-//   answer = questions[2].answer;
-
-//   console.log(answer);
-
-//   modalBody.addEventListener("click", function(event) {
-//     var element = event.target;
-
-//     console.log(element.textContent);
-
-//     if (element.matches("button") === true) {
-
-//       if (element.textContent === answer) {
-//         playerScore += sec;
-//         score.textContent = `Score: ` + playerScore;
-//         question4();
-
-//       } else {
-//         sec -= 15;
-//         question4();
-//       }
-//     }
-//   })
-
-// }
-// function question4() {
-
-//   modalHeader.innerHTML = questions[3].title;
-//   response1.textContent = questions[3].choices[0];
-//   response2.textContent = questions[3].choices[1];
-//   response3.textContent = questions[3].choices[2];
-//   response4.textContent = questions[3].choices[3];
-//   answer = questions[3].answer;
-
-//   console.log(answer);
-
-//   modalBody.addEventListener("click", function(event) {
-//     var element = event.target;
-
-//     console.log(element.textContent);
-
-//     if (element.matches("button") === true) {
-
-//       if (element.textContent === answer) {
-//         playerScore += sec;
-//         score.textContent = `Score: ` + playerScore;
-
-//       } else {
-//         sec -= 15;
-//       }
-//     }
-//   })
-
-// }
-// function question5() {
-
-//   modalHeader.innerHTML = questions[4].title;
-//   response1.textContent = questions[4].choices[0];
-//   response2.textContent = questions[4].choices[1];
-//   response3.textContent = questions[4].choices[2];
-//   response4.textContent = questions[4].choices[3];
-//   answer = questions[4].answer;
-
-//   console.log(answer);
-
-//   modalBody.addEventListener("click", function(event) {
-//     var element = event.target;
-
-//     console.log(element.textContent);
-
-//     if (element.matches("button") === true) {
-
-//       if (element.textContent === answer) {
-//         playerScore += sec;
-//         score.textContent = `Score: ` + playerScore;
-
-//       } else {
-//         sec -= 15;
-//       }
-//     }
-//   })
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
